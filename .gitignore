@@ -9,3 +9,6 @@ __pycache__/
 *.pyc
 *.pyo
 
+# Other IDE-specific files
+.vscode/
+.idea/
