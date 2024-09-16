@@ -1,0 +1,11 @@
+# Virtual environment
+quant_finance_venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
