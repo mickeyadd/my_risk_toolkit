@@ -2,11 +2,15 @@
 
 This project uses Python 3.11 and includes a virtual environment for package management.
 
-It includes my notes from Carol Alexander's Market Risk Analysis book series published by John Wiley & Sons.
+It includes my notes from Carol Alexander's Market Risk Analysis book series.
 
 I've included them in a markdown file with examples created using python.
 
 Any errors or mistakes are my own.
+
+**Source Citation**  
+
+Alexander, C. (2009–2012). *Market risk analysis* (Vols. 1–4). John Wiley & Sons.
 
 ## Example Code
 
