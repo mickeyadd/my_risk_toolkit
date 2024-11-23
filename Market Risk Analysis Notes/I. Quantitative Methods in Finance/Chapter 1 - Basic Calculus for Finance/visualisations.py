@@ -2,6 +2,96 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import quad
 
+def function_plot():
+    def f(x):
+        return 3 * x + 4
+    # Quadratic Function Example
+    def g(x):
+        return x**2 + 8 * x - 9
+
+    # Generate x values
+    x_values = np.linspace(-10, 10, 100)
+    y_f_values = f(x_values)
+    y_g_values = g(x_values)
+
+    # Plot both functions
+    plt.figure(figsize=(8, 4))
+    plt.plot(x_values, y_f_values, label=r"$f(x) = 3x + 4$", color="blue")
+    plt.plot(x_values, y_g_values, label=r"$g(x) = x^2 + 8x - 9$", color="red")
+
+    # Mark the roots of the function
+    plt.scatter([-9, (-4/3), 1], [0, 0, 0], color=["red", "blue", "red"], marker="*", s= 10**2, zorder=5)
+    # Defining x-axis values 
+    plt.xticks(np.arange(-10, 11, 2))
+
+    # Labels and grid
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.title("Plot of Linear Function $f(x)$ and Quadratic Function $g(x)$")
+    plt.axhline(0, color="black", linewidth=0.5)
+    plt.axvline(0, color="black", linewidth=0.5)
+    plt.grid(True)
+    plt.legend()
+    plt.show()
+
+
+def call_option_payoff():
+    # Strike Price
+    K = 100
+    # Range of underlying prices at expiration
+    S = np.linspace(50, 150, 100)
+
+    # American call option payoff (same as European at expiration)
+    payoff_call = np.maximum(S - K, 0)
+
+    # Plot the payoff
+    plt.figure(figsize=(8, 4))
+    plt.plot(S, payoff_call, label='American Call Option Payoff', color='b')
+    plt.axhline(0, color='black', linestyle='--', linewidth=0.5)
+    plt.axvline(K, color='red', linestyle=':', linewidth=3, label=f'Strike Price (K={K})')  # Dotted line for strike price
+    plt.xlabel('Underlying Asset Price at Expiration ($S_T$)')
+    plt.ylabel('Payoff')
+    plt.title('Payoff of an American Call Option at Expiration')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+
+def inverse_functions():
+    # Define the function and its inverse
+    def f(x):
+        return np.exp(x)
+
+    def f_inverse(x):
+        return np.log(x)
+
+    # Generate x values for f(x) and a positive range for f_inverse(x) since ln(x) is only defined for x > 0
+    x = np.linspace(-2, 2, 100)  # x values for f(x)
+    x_inverse = np.linspace(0.1, 7, 100)  # x values for f_inverse(x), avoiding x=0 for log
+
+    # Calculate y values for the function and its inverse
+    y = f(x)
+    y_inverse = f_inverse(x_inverse)
+
+    # Plot the function, its inverse, and y = x line for symmetry
+    plt.figure(figsize=(8, 4))
+    plt.plot(x, y, label=r'$f(x) = e^x$', color='blue')
+    plt.plot(x_inverse, y_inverse, label=r'$f^{-1}(x) = \ln(x)$', color='red')
+    plt.plot(x, x, label=r'$y = x$', color='green', linestyle='--')
+
+    # Labeling the plot
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title('Graph of a Function and Its Inverse')
+    plt.legend()
+    plt.grid(True)
+    plt.axhline(0, color='black', linewidth=0.5)
+    plt.axvline(0, color='black', linewidth=0.5)
+    plt.show()
+
+
+
+
 def differentiation_plot():# Define the function f(x)
     def f(x):
         return 2 * x**3
