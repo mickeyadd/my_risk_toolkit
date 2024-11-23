@@ -1,6 +1,12 @@
-# Machine Learning Project
+# Quantitative Methods In Finance
 
 This project uses Python 3.11 and includes a virtual environment for package management.
+
+It includes my notes from Carol Alexander's Market Risk Analysis book series published by John Wiley & Sons.
+
+I've included them in a markdown file with examples created using python.
+
+Any errors or mistakes are my own.
 
 ## Example Code
 
