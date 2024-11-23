@@ -1,4 +1,4 @@
-# Quantitative Methods In Finance
+# Market Risk Analaysis
 
 This project uses Python 3.11 and includes a virtual environment for package management.
 
@@ -10,7 +10,7 @@ Any errors or mistakes are my own.
 
 **Source Citation**  
 
-Alexander, C. (2009–2012). *Market risk analysis* (Vols. 1–4). John Wiley & Sons.
+Alexander, C. (2009–2012). *Market Risk Analysis* (Vols. 1–4). John Wiley & Sons.
 
 ## Example Code
 
