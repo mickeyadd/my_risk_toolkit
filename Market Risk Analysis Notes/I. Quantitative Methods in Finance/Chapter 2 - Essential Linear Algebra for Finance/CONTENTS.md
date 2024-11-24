@@ -2,6 +2,7 @@
 
 
 ## 2.1    Matrix Algebra and its Mathematical Applications  
+
   - 2.1.1  Basic Terminology   
   - 2.1.2  Laws of Matrix Algebra  
   - 2.1.3  Singular Matrices   
@@ -13,6 +14,7 @@
 
 
 ## 2.2     Eigenvectors and Eigenvalues  
+
   - 2.2.1  Matrices as Linear Transformations  
   - 2.2.2  Formal Definitions  
   - 2.2.3  The Characteristic Equation  
@@ -23,13 +25,15 @@
 
 
 ## 2.3     Applications to Lienar Portfolios  
-  - 2.3.1  Covariance and Correlation Matrices  
+
+  - 2.3.1  Covariance and Correlation Matrices   
   - 2.3.2  Portfolio Risk and Return in Matrix Notation  
-  - 2.3.3  Positive Definiteness of Covariance and Correlation Matrices  
+  - 2.3.3  Positive Definiteness of Covariance and Correlation Matrices   
   - 2.3.4  Eigenvalues and Eigenvectors of Covariance and Correlation Matrices  
 
 
 ## 2.4     Matrix Decomposition  
+
   - 2.4.1  Spectral Decomposition of a Symmetric Matrix  
   - 2.4.2  Similarity Transforms  
   - 2.4.3  Cholesky Decomposition  
@@ -37,6 +41,7 @@
 
 
 ## 2.5     Principal Component Analysis  
+
   - 2.5.1  Definition of Principal Components  
   - 2.5.2  Principal Component Representation  
   - 2.5.3  Case Study: PCA of European Equity Indices  
