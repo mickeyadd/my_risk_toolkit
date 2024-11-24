@@ -38,7 +38,7 @@
 
 ## 1.5 Taylor Expansion
 
-1.5.1 Definition and Examples
-1.5.2 Risk Factors and their Sensitivities
-1.5.3 Some Financial Applications of Taylor Expansion
+1.5.1 Definition and Examples  
+1.5.2 Risk Factors and their Sensitivities  
+1.5.3 Some Financial Applications of Taylor Expansion  
 1.5.4 Multivariate Taylor Expansion
