@@ -210,3 +210,32 @@ def integration_plot():# Define the function f(x)
     plt.xticks(np.arange(0, 5.5, 0.5))
     # Show the plot
     plt.show()
+
+
+
+
+def random_walk():
+
+    # Set random seed 42 (the answer to everything) for reproducibility
+    np.random.seed(42)
+
+    # Parameters
+    n_steps = 1000  # Number of steps
+    probability = 0.5  # Probability for each step to go up or down
+
+    # Generate random steps: 1 (up) or -1 (down) with equal probability
+    steps = np.random.choice([-1, 1], size=n_steps, p=[probability, 1 - probability])
+
+    # Generate the positions by taking the cumulative sum of steps
+    positions = np.cumsum(steps)
+
+    # Plot the random walk
+    plt.figure(figsize=(8, 4))
+    plt.plot(positions, label="Random Walk")
+    plt.axhline(0, color='black',linewidth=0.5)  # x-axis (starting point)
+    plt.title("1,000 Step Journey of a Random Walk")
+    plt.xlabel("Step")
+    plt.ylabel("Position")
+    plt.legend(shadow = True)
+    plt.grid(True)
+    plt.show()
