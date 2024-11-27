@@ -1,6 +1,4 @@
-# Practical Financial Econometrics  
-
-# Chapter 1 Factor Models  
+# Chapter 1 - Factor Models  
 
 ## 1.1 Single Factor Models  
 
@@ -186,156 +184,156 @@
 
 ## 5.1 Stationary Processes  
 
-  -  5.1.1 Time Series Models
-  -  5.1.2 Inversion and the Lag Operator
-  -  5.1.3 Response to Shocks
-  -  5.1.4 Estimation
-  -  5.1.5 Prediction
-  -  5.1.6 Multivariate Models for Stationary Processes
+  -  5.1.1 Time Series Models  
+  -  5.1.2 Inversion and the Lag Operator  
+  -  5.1.3 Response to Shocks  
+  -  5.1.4 Estimation  
+  -  5.1.5 Prediction  
+  -  5.1.6 Multivariate Models for Stationary Processes  
 
-## 5.2 Stochastic Trends
+## 5.2 Stochastic Trends  
 
-  -  5.2.1 Random Walks and Efficient Markets
-  -  5.2.2 Integrated Processes and Stochastic Trends
-  -  5.2.3 Deterministic Trends
-  -  5.2.4 Unit Root Tests
-  -  5.2.5 Unit Roots in Asset Prices
-  -  5.2.6 Unit Roots in Interest Rates, Credit Spreads and Implied Volatility
-  -  5.2.7 Reconciliation of Time Series and Continuous Time Models
-  -  5.2.8 Unit Roots in Commodity Prices
+  -  5.2.1 Random Walks and Efficient Markets  
+  -  5.2.2 Integrated Processes and Stochastic Trends  
+  -  5.2.3 Deterministic Trends  
+  -  5.2.4 Unit Root Tests  
+  -  5.2.5 Unit Roots in Asset Prices  
+  -  5.2.6 Unit Roots in Interest Rates, Credit Spreads and Implied Volatility  
+  -  5.2.7 Reconciliation of Time Series and Continuous Time Models  
+  -  5.2.8 Unit Roots in Commodity Prices  
 
-## 5.3 Long Term Equilibrium
+## 5.3 Long Term Equilibrium  
 
-  -  5.3.1 Cointegration and Correlation Compared
-  -  5.3.2 Common Stochastic Trends
-  -  5.3.3 Formal Definition of Cointegration
-  -  5.3.4 Evidence of Cointegration in Financial Markets
-  -  5.3.5 Estimation and Testing in Cointegrated Systems
-  -  .3.6 Application to Benchmark Tracking
-  -  5.3.7 Case Study: Cointegration Index Tracking in the Dow Jones Index
+  -  5.3.1 Cointegration and Correlation Compared  
+  -  5.3.2 Common Stochastic Trends  
+  -  5.3.3 Formal Definition of Cointegration  
+  -  5.3.4 Evidence of Cointegration in Financial Markets  
+  -  5.3.5 Estimation and Testing in Cointegrated Systems  
+  -  .3.6 Application to Benchmark Tracking  
+  -  5.3.7 Case Study: Cointegration Index Tracking in the Dow Jones Index  
 
-## 5.4 Modelling Short Term Dynamics
+## 5.4 Modelling Short Term Dynamics  
 
-  -  5.4.1 Error Correction Models
-  -  5.4.2 Granger Causality
-  -  5.4.3 Case Study: Pairs Trading Volatility Index Futures
-
-
-# Chapter 6 - Introduction to Copulas
+  -  5.4.1 Error Correction Models  
+  -  5.4.2 Granger Causality  
+  -  5.4.3 Case Study: Pairs Trading Volatility Index Futures  
 
 
-## 6.1 Concordance Metrics
-
-  -  6.1.1 Concordance
-  -  6.1.2 Rank Correlations
+# Chapter 6 - Introduction to Copulas  
 
 
-## 6.2 Copulas and Associated Theoretical Concepts
+## 6.1 Concordance Metrics  
 
-  -  6.2.1 Simulation of a Single Random Variable
-  -  6.2.2 Definition of a Copula
-  -  6.2.3 Conditional Copula Distributions and their Quantile Curves
-  -  6.2.4 Tail Dependence
-  -  6.2.5 Bounds for Dependence
-
-## 6.3 Examples of Copulas
-
-  -  6.3.1 Normal or Gaussian Copulas
-  -  6.3.2 Student t Copulas
-  -  6.3.3 Normal Mixture Copulas
-  -  6.3.4 Archimedean Copulas
-
-## 6.4 Conditional Copula Distributions and Quantile Curves
-
-  -  6.4.1 Normal or Gaussian Copulas
-  -  6.4.2 Student t Copulas
-  -  6.4.3 Normal Mixture Copulas
-  -  6.4.4 Archimedean Copulas
-  -  6.4.5 Examples
-
-## 6.5 Calibrating Copulas
-
-  -  6.5.1 Correspondence between Copulas and Rank Correlations
-  -  6.5.2 Maximum Likelihood Estimation
-  -  6.5.3 How to Choose the Best Copula
-
-## 6.6 Simulation with Copulas
-
-  -  6.6.1 Using Conditional Copulas for Simulation
-  -  6.6.2 Simulation from Elliptical Copulas
-  -  6.6.3 Simulation with Normal and Student t Copulas
-  -  6.6.4 Simulation from Archimedean Copulas
-
-## 6.7 Market Risk Applications
-
-  -  6.7.1 Value-at-Risk Estimation
-  -  6.7.2 Aggregation and Portfolio Diversification
-  -  6.7.3 Using Copulas for Portfolio Optimization
+  -  6.1.1 Concordance  
+  -  6.1.2 Rank Correlations  
 
 
-# Chapter 7 - Advanced Econometric Models
+## 6.2 Copulas and Associated Theoretical Concepts  
+
+  -  6.2.1 Simulation of a Single Random Variable  
+  -  6.2.2 Definition of a Copula  
+  -  6.2.3 Conditional Copula Distributions and their Quantile Curves  
+  -  6.2.4 Tail Dependence  
+  -  6.2.5 Bounds for Dependence  
+
+## 6.3 Examples of Copulas  
+
+  -  6.3.1 Normal or Gaussian Copulas  
+  -  6.3.2 Student t Copulas  
+  -  6.3.3 Normal Mixture Copulas  
+  -  6.3.4 Archimedean Copulas  
+
+## 6.4 Conditional Copula Distributions and Quantile Curves  
+
+  -  6.4.1 Normal or Gaussian Copulas  
+  -  6.4.2 Student t Copulas  
+  -  6.4.3 Normal Mixture Copulas  
+  -  6.4.4 Archimedean Copulas  
+  -  6.4.5 Examples  
+
+## 6.5 Calibrating Copulas  
+
+  -  6.5.1 Correspondence between Copulas and Rank Correlations  
+  -  6.5.2 Maximum Likelihood Estimation  
+  -  6.5.3 How to Choose the Best Copula  
+
+## 6.6 Simulation with Copulas  
+
+  -  6.6.1 Using Conditional Copulas for Simulation  
+  -  6.6.2 Simulation from Elliptical Copulas  
+  -  6.6.3 Simulation with Normal and Student t Copulas  
+  -  6.6.4 Simulation from Archimedean Copulas  
+
+## 6.7 Market Risk Applications  
+
+  -  6.7.1 Value-at-Risk Estimation  
+  -  6.7.2 Aggregation and Portfolio Diversification  
+  -  6.7.3 Using Copulas for Portfolio Optimization  
 
 
-## 7.1 Quantile Regression
-
-  -  7.1.1 Review of Standard Regression
-  -  7.1.2 What is Quantile Regression?
-  -  7.1.3 Parameter Estimation in Quantile Regression
-  -  7.1.4 Inference in Linear Quantile Regression
-  -  7.1.5 Using Copulas for Non-linear Quantile Regression
-
-## 7.2 Case Studies on Quantile Regression
-
-  -  7.2.1 Case Study 1: Quantile Regression of Vftse on FTSE 100 Index
-  -  7.2.2 Case Study 2: Hedging with Copula Quantile Regression
-
-## 7.3 Other Non-Linear Regression Models
-
-  -  7.3.1 Non-linear Least Squares
-  -  7.3.2 Discrete Choice Models
-
-## 7.4 Markov Switching Models
-
-  -  7.4.1 Testing for Structural Breaks
-  -  7.4.2 Model Specification
-  -  7.4.3 Financial Applications and Software
-
-## 7.5 Modelling Ultra High Frequency Data
-
-  -  7.5.1 Data Sources and Filtering
-  -  7.5.2 Modelling the Time between Trades
-  -  7.5.3 Forecasting Volatility
+# Chapter 7 - Advanced Econometric Models  
 
 
-# Chapter 8 - Forecasting and Model Evaluation
+## 7.1 Quantile Regression  
 
-## 8.1 Returns Models
+  -  7.1.1 Review of Standard Regression  
+  -  7.1.2 What is Quantile Regression?  
+  -  7.1.3 Parameter Estimation in Quantile Regression  
+  -  7.1.4 Inference in Linear Quantile Regression  
+  -  7.1.5 Using Copulas for Non-linear Quantile Regression  
 
-  -  8.1.1 Goodness of Fit
-  -  8.1.2 Forecasting
-  -  8.1.3 Simulating Critical Values for Test Statistics
-  -  8.1.4 Specification Tests for Regime Switching Models
+## 7.2 Case Studies on Quantile Regression  
 
-## 8.2 Volatility Models
+  -  7.2.1 Case Study 1: Quantile Regression of Vftse on FTSE 100 Index  
+  -  7.2.2 Case Study 2: Hedging with Copula Quantile Regression  
 
-  -  8.2.1 Goodness of Fit of GARCH Models
-  -  8.2.2 Forecasting with GARCH Volatility Models
-  -  8.2.3 Moving Average Models
+## 7.3 Other Non-Linear Regression Models  
 
-## 8.3 Forecasting the Tails of a Distribution
+  -  7.3.1 Non-linear Least Squares  
+  -  7.3.2 Discrete Choice Models  
 
-  -  8.3.1 Confidence Intervals for Quantiles
-  -  8.3.2 Coverage Tests
-  -  8.3.3 Application of Coverage Tests to GARCH Models
-  -  8.3.4 Forecasting Conditional Correlations
+## 7.4 Markov Switching Models  
 
-## 8.4 Operational Evaluation
+  -  7.4.1 Testing for Structural Breaks  
+  -  7.4.2 Model Specification  
+  -  7.4.3 Financial Applications and Software  
 
-  -  8.4.1 General Backtesting Algorithm
-  -  8.4.2 Alpha Models
-  -  8.4.3 Portfolio Optimization
-  -  8.4.4 Hedging with Futures
-  -  8.4.5 Value-at-Risk Measurement
-  -  8.4.6 Trading Implied Volatility
-  -  8.4.7 Trading Realized Volatility
-  -  8.4.8 Pricing and Hedging Options
+## 7.5 Modelling Ultra High Frequency Data  
+
+  -  7.5.1 Data Sources and Filtering  
+  -  7.5.2 Modelling the Time between Trades  
+  -  7.5.3 Forecasting Volatility  
+
+
+# Chapter 8 - Forecasting and Model Evaluation  
+
+## 8.1 Returns Models  
+
+  -  8.1.1 Goodness of Fit  
+  -  8.1.2 Forecasting  
+  -  8.1.3 Simulating Critical Values for Test Statistics  
+  -  8.1.4 Specification Tests for Regime Switching Models  
+
+## 8.2 Volatility Models  
+
+  -  8.2.1 Goodness of Fit of GARCH Models  
+  -  8.2.2 Forecasting with GARCH Volatility Models  
+  -  8.2.3 Moving Average Models  
+
+## 8.3 Forecasting the Tails of a Distribution  
+
+  -  8.3.1 Confidence Intervals for Quantiles  
+  -  8.3.2 Coverage Tests  
+  -  8.3.3 Application of Coverage Tests to GARCH Models  
+  -  8.3.4 Forecasting Conditional Correlations  
+
+## 8.4 Operational Evaluation  
+
+  -  8.4.1 General Backtesting Algorithm  
+  -  8.4.2 Alpha Models  
+  -  8.4.3 Portfolio Optimization  
+  -  8.4.4 Hedging with Futures  
+  -  8.4.5 Value-at-Risk Measurement  
+  -  8.4.6 Trading Implied Volatility  
+  -  8.4.7 Trading Realized Volatility  
+  -  8.4.8 Pricing and Hedging Options  
