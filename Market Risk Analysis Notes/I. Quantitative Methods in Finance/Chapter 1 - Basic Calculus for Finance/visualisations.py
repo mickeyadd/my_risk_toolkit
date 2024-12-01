@@ -1,7 +1,59 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 from scipy.integrate import quad
 
+# Define the function to generate the 3D plot
+def surface_plot():
+    """ Plots a function 
+    f(x, y) = x^2 * 2y - 2x - 4y
+    Displays interactive surface plot
+    of the graph in 3D using plotly"""
+
+    # Define the function f(x, y) = x^2*y - 2x - 4y
+    def f(x, y):
+        return x**2 * y - 2*x - 4*y
+
+    # Create a meshgrid for x and y
+    x = np.linspace(-10, 10, 100)
+    y = np.linspace(-10, 10, 100)
+    X, Y = np.meshgrid(x, y)
+    Z = f(X, Y)
+
+    # Create the 3D plot with contours and more mesh lines
+    fig = go.Figure(data=[go.Surface(z=Z, x=X, y=Y, 
+                                     contours=dict(
+                                         x=dict(show=True, color='black', width=1),
+                                         y=dict(show=True, color='black', width=1),
+                                         z=dict(show=True, color='black', width=1)
+                                     ))])
+
+    # Update layout for aesthetics
+    fig.update_layout(
+        template="seaborn",  
+        title=r"f(x, y) = x^2 y - 2x - 4y", 
+        scene=dict(
+            xaxis_title='X',
+            yaxis_title='Y',
+            zaxis_title="f(x, y)",
+            xaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 9)),
+            yaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 9)),
+            zaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-1000, 1000, 9)),
+        ),
+        autosize=False,
+        width=800,
+        height=800
+    )
+        
+
+    # Save the plot as an HTML file
+    fig.write_html("surface_plot.html")
+
+    # Show the plot in the notebook
+    fig.show()
+
+
+# Basic function plot
 def function_plot():
     def f(x):
         return 3 * x + 4
@@ -56,7 +108,7 @@ def call_option_payoff():
     plt.grid(True)
     plt.show()
 
-
+# Inverse function plot
 def inverse_functions():
     # Define the function and its inverse
     def f(x):
@@ -91,7 +143,7 @@ def inverse_functions():
 
 
 
-
+# Differentiation plot
 def differentiation_plot():# Define the function f(x)
     def f(x):
         return 2 * x**3
@@ -171,7 +223,7 @@ def differentiation_plot():# Define the function f(x)
 
 
 
-
+# Integration Plot
 def integration_plot():# Define the function f(x)
     # Define the function f(x)
     def f(x):
@@ -213,7 +265,7 @@ def integration_plot():# Define the function f(x)
 
 
 
-
+# Random Walk plot
 def random_walk():
 
     # Set random seed 42 (the answer to everything) for reproducibility
