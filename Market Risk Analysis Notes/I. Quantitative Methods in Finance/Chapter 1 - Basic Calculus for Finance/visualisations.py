@@ -31,7 +31,7 @@ def surface_plot():
     # Update layout for aesthetics
     fig.update_layout(
         template="seaborn",  
-        title='Interactive 3D Plot: f(x, y) = x²y - 2x - 4y',
+        title='Surface Plot: f(x, y) = x²y - 2x - 4y',
         scene=dict(
             xaxis_title='x',
             yaxis_title='y',
@@ -39,6 +39,9 @@ def surface_plot():
             xaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 9)),
             yaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 9)),
             zaxis=dict(showgrid=True, gridcolor='lightgray', nticks=5, tickvals=np.linspace(-1000, 1000, 5)),
+            camera=dict(
+                eye=dict(x=1.5, y=1.5, z = 0.5)
+            ),
         ),
         autosize=False,
         width=800,
@@ -47,9 +50,10 @@ def surface_plot():
         
 
     # Save the plot as an HTML file
-    #fig.write_html("surface_plot.html")
+    fig.write_html("surface_plot.html")
 
-    fig.write_image("surface_plot.png")
+    # Save the plot as a PNG file
+    fig.write_image("surface_plot_zoomed_out.png", width=1000, height=1000, scale=1)
 
 
     # Show the plot in the notebook
