@@ -15,8 +15,8 @@ def surface_plot():
         return x**2 * y - 2*x - 4*y
 
     # Create a meshgrid for x and y
-    x = np.linspace(-10, 10, 50)
-    y = np.linspace(-10, 10, 50)
+    x = np.linspace(-10, 10, 100)
+    y = np.linspace(-10, 10, 100)
     X, Y = np.meshgrid(x, y)
     Z = f(X, Y)
 
@@ -38,11 +38,11 @@ def surface_plot():
             zaxis_title="f(x, y)",
             xaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 9)),
             yaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 9)),
-            zaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-1000, 1000, 9)),
+            zaxis=dict(showgrid=True, gridcolor='lightgray', nticks=5, tickvals=np.linspace(-1000, 1000, 5)),
         ),
         autosize=False,
-        width=600,
-        height=500
+        width=800,
+        height=800
     )
         
 
