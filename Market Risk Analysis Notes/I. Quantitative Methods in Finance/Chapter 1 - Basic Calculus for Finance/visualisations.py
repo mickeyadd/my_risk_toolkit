@@ -36,9 +36,9 @@ def surface_plot():
             xaxis_title='x',
             yaxis_title='y',
             zaxis_title="f(x, y)",
-            xaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 9)),
-            yaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 9)),
-            zaxis=dict(showgrid=True, gridcolor='lightgray', nticks=5, tickvals=np.linspace(-1000, 1000, 5)),
+            xaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 5)),
+            yaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 5)),
+            zaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-1000, 1000, 5)),
             camera=dict(
                 eye=dict(x=1.5, y=1.5, z = 0.5)
             ),
@@ -53,7 +53,7 @@ def surface_plot():
     fig.write_html("surface_plot.html")
 
     # Save the plot as a PNG file
-    fig.write_image("surface_plot_zoomed_out.png", width=1000, height=1000, scale=1)
+    fig.write_image("surface_plot.png", width=1000, height=1000, scale=1)
 
 
     # Show the plot in the notebook
