@@ -47,7 +47,10 @@ def surface_plot():
         
 
     # Save the plot as an HTML file
-    fig.write_html("surface_plot.html")
+    #fig.write_html("surface_plot.html")
+
+    fig.write_image("surface_plot.png")
+
 
     # Show the plot in the notebook
     fig.show()
