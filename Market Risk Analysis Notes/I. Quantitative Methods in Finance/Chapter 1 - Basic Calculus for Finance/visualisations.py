@@ -31,10 +31,10 @@ def surface_plot():
     # Update layout for aesthetics
     fig.update_layout(
         template="seaborn",  
-        title=r"f(x, y) = x^2 y - 2x - 4y", 
+        title='Interactive 3D Plot: f(x, y) = x²y - 2x - 4y',
         scene=dict(
-            xaxis_title='X',
-            yaxis_title='Y',
+            xaxis_title='x',
+            yaxis_title='y',
             zaxis_title="f(x, y)",
             xaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 9)),
             yaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 9)),
