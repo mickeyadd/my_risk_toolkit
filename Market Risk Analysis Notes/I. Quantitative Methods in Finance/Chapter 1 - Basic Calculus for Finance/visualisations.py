@@ -1,10 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 import plotly.graph_objects as go
 from scipy.integrate import quad
 
-# Define the function to generate the 3D plot
-def surface_plot():
+# Define the function to generate the 3D surface plot of a function with two variables f(x, y)
+def interactive_surface_plot():
     """ Plots a function 
     f(x, y) = x^2 * 2y - 2x - 4y
     Displays interactive surface plot
@@ -27,7 +28,6 @@ def surface_plot():
                                          y=dict(show=True, color='black', width=1),
                                          z=dict(show=True, color='black', width=1)
                                      ))])
-
     # Update layout for aesthetics
     fig.update_layout(
         template="seaborn",  
@@ -36,9 +36,9 @@ def surface_plot():
             xaxis_title='x',
             yaxis_title='y',
             zaxis_title="f(x, y)",
-            xaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 5)),
-            yaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 5)),
-            zaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-1000, 1000, 5)),
+            xaxis=dict(showgrid=True, gridcolor='lightgray', nticks=5, tickvals=np.linspace(-10, 10, 9)),
+            yaxis=dict(showgrid=True, gridcolor='lightgray', nticks=5, tickvals=np.linspace(-10, 10, 9)),
+            zaxis=dict(showgrid=True, gridcolor='lightgray', nticks=5, tickvals=np.linspace(-1000, 1000, 5)),
             camera=dict(
                 eye=dict(x=1.5, y=1.5, z = 0.75)
             ),
@@ -47,17 +47,42 @@ def surface_plot():
         width=800,
         height=800
     )
-        
-
     # Save the plot as an HTML file
     fig.write_html("surface_plot.html")
 
-    # Save the plot as a PNG file
-    fig.write_image("surface_plot.png", width=1000, height=1000, scale=0.75)
-
-
     # Show the plot in the notebook
     fig.show()
+
+
+def static_surface_plot():
+    # Define the function
+    def f(x, y):
+        return x**2 * y - 2 * x - 4 * y
+
+    # Create a grid of x and y values
+    x = np.linspace(-5, 5, 100)
+    y = np.linspace(-5, 5, 100)
+    X, Y = np.meshgrid(x, y)
+
+    # Compute z values
+    Z = f(X, Y)
+
+    # Create a 3D plot
+    fig = plt.figure(figsize=(8, 8))
+    ax = fig.add_subplot(111, projection='3d')
+
+    # Plot the surface
+    surf = ax.plot_surface(X, Y, Z, cmap='viridis', edgecolor='k', alpha=0.8)
+
+    # Add labels and a color bar
+    ax.set_title(r"Surface Plot of $f(x, y) = x^2 y - 2x - 4y$")
+    ax.set_xlabel(r"$x$")
+    ax.set_ylabel(r"$y$")
+    ax.set_zlabel(r"$f(x, y)$")
+    fig.colorbar(surf, shrink=0.5, aspect=5)
+
+    # Show the plot
+    plt.show()
 
 
 # Basic function plot
