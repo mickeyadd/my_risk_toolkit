@@ -27,7 +27,7 @@ def interactive_surface_plot():
                                          x=dict(show=True, color='black', width=1),
                                          y=dict(show=True, color='black', width=1),
                                          z=dict(show=True, color='black', width=1)
-                                     ))])
+                                     ), colorscale='Viridis')])
     # Update layout for aesthetics
     fig.update_layout(
         template="seaborn",  
