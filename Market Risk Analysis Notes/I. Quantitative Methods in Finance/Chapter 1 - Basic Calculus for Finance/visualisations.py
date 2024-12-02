@@ -40,7 +40,7 @@ def surface_plot():
             yaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-10, 10, 5)),
             zaxis=dict(showgrid=True, gridcolor='lightgray', nticks=10, tickvals=np.linspace(-1000, 1000, 5)),
             camera=dict(
-                eye=dict(x=1.5, y=1.5, z = 0.5)
+                eye=dict(x=1.5, y=1.5, z = 0.75)
             ),
         ),
         autosize=False,
@@ -53,7 +53,7 @@ def surface_plot():
     fig.write_html("surface_plot.html")
 
     # Save the plot as a PNG file
-    fig.write_image("surface_plot.png", width=1000, height=1000, scale=1)
+    fig.write_image("surface_plot.png", width=1000, height=1000, scale=0.75)
 
 
     # Show the plot in the notebook
