@@ -48,7 +48,7 @@ def interactive_surface_plot():
         height=800
     )
     # Save the plot as an HTML file
-    fig.write_html("surface_plot.html")
+    #fig.write_html("surface_plot.html")
 
     # Show the plot in the notebook
     fig.show()
