@@ -55,31 +55,39 @@ def interactive_surface_plot():
 
 
 def static_surface_plot():
+    """Plots a basic surface plot of the 
+    function x^2 * y - 2x -4y using matplot"""
     # Define the function
     def f(x, y):
         return x**2 * y - 2 * x - 4 * y
 
     # Create a grid of x and y values
-    x = np.linspace(-5, 5, 100)
-    y = np.linspace(-5, 5, 100)
+    x = np.linspace(-10, 10, 25)
+    y = np.linspace(-10, 10, 25)
     X, Y = np.meshgrid(x, y)
 
     # Compute z values
     Z = f(X, Y)
 
     # Create a 3D plot
-    fig = plt.figure(figsize=(8, 8))
+    fig = plt.figure(figsize=(8, 6))
     ax = fig.add_subplot(111, projection='3d')
 
     # Plot the surface
     surf = ax.plot_surface(X, Y, Z, cmap='viridis', edgecolor='k', alpha=0.8)
 
+    # Reduce the number of ticks
+    ax.set_xticks(np.arange(-10, 11, 5))
+    ax.set_yticks(np.arange(-10, 11, 5))
+    ax.set_zticks(np.arange(-1000, 1001, 500))
+
     # Add labels and a color bar
-    ax.set_title(r"Surface Plot of $f(x, y) = x^2 y - 2x - 4y$")
+    ax.set_title(r"Surface Plot of" "\n" 
+                r"$f(x, y) = x^2 y - 2x - 4y$", loc='left')
     ax.set_xlabel(r"$x$")
     ax.set_ylabel(r"$y$")
     ax.set_zlabel(r"$f(x, y)$")
-    fig.colorbar(surf, shrink=0.5, aspect=5)
+    fig.colorbar(surf, pad= 0.1, shrink=0.5, aspect=8)
 
     # Show the plot
     plt.show()
