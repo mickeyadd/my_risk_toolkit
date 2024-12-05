@@ -3,6 +3,175 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import plotly.graph_objects as go
 from scipy.integrate import quad
+from sympy import symbols, diff, Matrix
+import seaborn as sns
+
+
+
+def interactive_contour_plot():
+    # Define the function f(x, y) = x^2 * y - 2x - 4y
+    def f(x, y):
+        return x**2 * y - 2*x - 4*y
+
+    # Define the symbolic variables for differentiation
+    x, y = symbols('x y')
+
+    # Define the function f(x, y)
+    f_sym = x**2 * y - 2*x - 4*y
+
+    # Compute the first and second derivatives
+    f_x = diff(f_sym, x)
+    f_y = diff(f_sym, y)
+
+    # Compute the second-order partial derivatives
+    f_xx = diff(f_x, x)
+    f_yy = diff(f_y, y)
+    f_xy = diff(f_x, y)
+
+    # Create the Hessian matrix
+    Hessian = Matrix([[f_xx, f_xy], [f_xy, f_yy]])
+
+    # Stationary points
+    stationary_points = [(2, 1/2), (-2, -1/2)]
+
+    # Compute the Hessian determinant and classify the points
+    def classify_stationary_point(x_val, y_val):
+        H = Hessian.subs({x: x_val, y: y_val})
+        det_H = H.det()
+        trace_H = H.trace()
+        
+        if det_H > 0 and trace_H > 0:
+            return "Local Min", 'black', 'circle'
+        elif det_H > 0 and trace_H < 0:
+            return "Local Max", 'black', 'triangle-up'
+        elif det_H < 0:
+            return "Saddle Point", 'black', 'x'
+        else:
+            return "Indeterminate", 'black', 'square'
+
+    # Create grid for the contour plot
+    x_vals = np.linspace(-15, 15, 100)
+    y_vals = np.linspace(-5, 5, 100)
+    X, Y = np.meshgrid(x_vals, y_vals)
+    Z = f(X, Y)
+
+    # Plotly contour plot
+    fig = go.Figure(data=go.Contour(
+        z=Z, x=x_vals, y=y_vals, colorscale='Blues', colorbar=dict(title="f(x, y)")
+    ))
+
+    # Mark stationary points with different colors and symbols
+    for point in stationary_points:
+        x_stationary, y_stationary = point
+        z_stationary = f(x_stationary, y_stationary)
+        
+        # Classify the stationary point
+        classification, color, symbol = classify_stationary_point(x_stationary, y_stationary)
+        
+        # Add stationary points to the plot with Plotly markers
+        fig.add_trace(go.Scatter(
+            x=[x_stationary], y=[y_stationary],
+            mode='markers+text',
+            marker=dict(color=color, symbol=symbol, size=12),
+            text=[f'{classification} ({x_stationary}, {y_stationary})'],
+            textposition="top center"
+        ))
+
+    # Customize layout
+    fig.update_layout(
+        title="Interactive Contour Plot with Stationary Points",
+        xaxis_title="X",
+        yaxis_title="Y",
+        showlegend=False
+    )
+
+    # Save the plot as an HTML file
+    fig.write_html("contour_plot.html")
+    # Show the plot
+    fig.show()
+
+
+def contour_plot():
+    
+    # Define the function f(x, y) = x^2 * y - 2x - 4y
+    def f(x, y):
+        return x**2 * y - 2*x - 4*y
+
+    # Define the symbolic variables for differentiation
+    x, y = symbols('x y')
+
+    # Define the function f(x, y)
+    f_sym = x**2 * y - 2*x - 4*y
+
+    # Compute the first and second derivatives
+    f_x = diff(f_sym, x)
+    f_y = diff(f_sym, y)
+
+    # Compute the second-order partial derivatives
+    f_xx = diff(f_x, x)
+    f_yy = diff(f_y, y)
+    f_xy = diff(f_x, y)
+
+    # Create the Hessian matrix
+    Hessian = Matrix([[f_xx, f_xy], [f_xy, f_yy]])
+
+    # Stationary points
+    stationary_points = [(2, 1/2), (-2, -1/2)]
+
+    # Compute the Hessian determinant and classify the points
+    def classify_stationary_point(x_val, y_val):
+        H = Hessian.subs({x: x_val, y: y_val})
+        det_H = H.det()
+        trace_H = H.trace()
+        
+        if det_H > 0 and trace_H > 0:
+            return "Local Min", 'black', 'o'
+        elif det_H > 0 and trace_H < 0:
+            return "Local Max", 'black', '^'
+        elif det_H < 0:
+            return "Saddle Point", 'black', '*'
+        else:
+            return "Indeterminate", 'black', 's'
+
+    # Set up the Seaborn styling
+    sns.set(style="whitegrid")
+
+    # Create the grid for the contour plot
+    x_vals = np.linspace(-15, 15, 100)
+    y_vals = np.linspace(-5, 5, 100)
+    X, Y = np.meshgrid(x_vals, y_vals)
+    Z = f(X, Y)
+
+    # Create the filled contour plot using Matplotlib's contourf
+    plt.figure(figsize=(15, 5))
+    cp = plt.contourf(X, Y, Z, 20, cmap='Blues')  # Use contourf to fill the contours
+    plt.colorbar(cp)  # Add color bar for reference
+    plt.xlabel('x')
+    plt.ylabel('y')
+
+    # Mark the stationary points with different colors and symbols
+    for point in stationary_points:
+        x_stationary, y_stationary = point
+        z_stationary = f(x_stationary, y_stationary)
+        
+        # Classify the stationary point
+        classification, color, marker = classify_stationary_point(x_stationary, y_stationary)
+        
+        # Plot the stationary point with appropriate color and marker
+        plt.scatter(x_stationary, y_stationary, color=color, s=100, marker=marker, label=f'{classification} ({x_stationary}, {y_stationary})')
+        
+        # Annotate the point with its classification
+        plt.annotate(classification, (x_stationary, y_stationary), textcoords="offset points", xytext=(0, 10), ha='center', color=color)
+
+    # Show the contour plot
+    plt.legend()
+    plt.title("Contour Plot with Stationary Points")
+    plt.show()
+
+
+
+
+
 
 # Define the function to generate the 3D surface plot of a function with two variables f(x, y)
 def interactive_surface_plot():
