@@ -6,7 +6,37 @@ from scipy.integrate import quad
 from sympy import symbols, diff, Matrix
 import seaborn as sns
 
+def taylor_approx_plot():
+    # Define the function and its Taylor approximations
+    def f(x):
+        return x**3 - 2 * np.log(x)
 
+    def taylor_approx_3rd(x):
+        return -x**3 + 6 * x**2 - 8 * x + (25 / 6)
+
+    def taylor_approx_4th(x):
+        return (x**4 / 2) - (5 * x**3 / 3) + (6 * x**2) - (8 * x) + (25 / 6)
+
+    # Define the range for x (excluding 0 to avoid log issues)
+    x = np.linspace(0.1, 3, 500)  # Avoid x <= 0 due to ln(x)
+
+    # Evaluate the functions
+    y_f = f(x)
+    y_taylor_3rd = taylor_approx_3rd(x)
+    y_taylor_4th = taylor_approx_4th(x)
+
+    # Plot the functions
+    plt.figure(figsize=(8, 6))
+    plt.plot(x, y_f, label=r"$f(x) = x^3 - 2\ln(x)$", color="blue")
+    plt.plot(x, y_taylor_3rd, label="3rd Order Approximation", color="green", linestyle="--")
+    plt.plot(x, y_taylor_4th, label="4th Order Approximation", color="red", linestyle="--")
+    plt.axhline(0, color='black', linewidth=0.5, linestyle="--", alpha=0.7)
+    plt.title("Function and Taylor Approximations")
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.legend()
+    plt.grid(alpha=0.4)
+    plt.show()
 
 def interactive_contour_plot():
     # Define the function f(x, y) = x^2 * y - 2x - 4y
