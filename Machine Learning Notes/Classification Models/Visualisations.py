@@ -1,7 +1,31 @@
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import confusion_matrix, roc_curve, roc_auc_score
+
+
+def standardisation_plot(original_data, standardised_data):
+    plt.figure(figsize=(14, 5))
+
+    # Before Standardisation
+    plt.subplot(1, 2, 1)
+    sns.histplot(original_data.flatten(), bins=50, color='salmon', kde=True)
+    plt.title('Before Standardisation')
+    plt.xlabel('Original Feature Values')
+    plt.ylabel('Frequency')
+    plt.grid(True)
+
+    # After Standardisation
+    plt.subplot(1, 2, 2)
+    sns.histplot(standardised_data.flatten(), bins=50, color='mediumseagreen', kde=True)
+    plt.title('After Standardisation')
+    plt.xlabel('Standardised Feature Values')
+    plt.ylabel('Frequency')
+    plt.grid(True)
+
+    plt.tight_layout()
+    plt.show()
 
 def sigmoid_plot():
     # Define sigmoid function
@@ -36,11 +60,65 @@ def sigmoid_plot():
     # Show plot
     plt.show()
 
+def plot_model_weights_gradient(weights, feature_names, title='Model Weights', sort_by_abs=True, palette='viridis'):
+    """
+    Plot model weights as a horizontal bar chart with gradient color intensity based on weight magnitude.
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
-from sklearn.metrics import confusion_matrix
+    Parameters:
+    -----------
+    weights : array-like
+        Array of model weights.
+    feature_names : list
+        List of feature names corresponding to the weights.
+    title : str
+        Title of the plot.
+    sort_by_abs : bool
+        Whether to sort bars by absolute weight values.
+    palette : str
+        Seaborn continuous palette name for coloring bars by magnitude.
+    """
+    # Create DataFrame
+    params_df = pd.DataFrame({
+        'Feature': [str(f).replace('_', ' ').title() for f in feature_names],
+        'Weight': weights.flatten()
+    })
+
+    # Optionally sort by absolute weight
+    if sort_by_abs:
+        params_df = params_df.reindex(params_df['Weight'].abs().sort_values(ascending=False).index)
+
+    # Normalize absolute weights to [0,1] for coloring
+    norm = plt.Normalize(params_df['Weight'].abs().min(), params_df['Weight'].abs().max())
+    colors = sns.color_palette(palette, as_cmap=True)(norm(params_df['Weight'].abs()))
+
+    # Plot
+    sns.set_theme(style="white")
+    plt.figure(figsize=(10, 8))
+    bars = plt.barh(
+        params_df['Feature'],
+        params_df['Weight'],
+        color=colors
+    )
+
+    plt.title(title, fontsize=14)
+    plt.xlabel('Weight Value')
+    plt.ylabel('Feature')
+    plt.gca().invert_yaxis()  # Most important at top
+    plt.grid(True, linestyle='--', alpha=0.5)
+    plt.tight_layout()
+    plt.show()
+
+
+
+def loss_plot(losses):
+    plt.plot(losses)
+    plt.xlabel("Epoch")
+    plt.ylabel("Binary Cross-Entropy Loss")
+    plt.title("Loss over Training")
+    plt.show()
+
+
+
 
 def plot_confusion_matrix(y_true, y_pred, class_names=None, title='Confusion Matrix', cmap='Blues', normalize=False):
     """
