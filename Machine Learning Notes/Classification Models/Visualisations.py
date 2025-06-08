@@ -247,6 +247,6 @@ def lasso_features_plot(importance_df):
     )
 
     plt.xlabel('Coefficient Value')
-    plt.title('Feature Importance (Ridge Regression)')
+    plt.title('Feature Importance (Lasso Regression)')
     plt.tight_layout()
     plt.show()
