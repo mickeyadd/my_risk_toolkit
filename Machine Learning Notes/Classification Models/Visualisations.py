@@ -250,3 +250,66 @@ def lasso_features_plot(importance_df):
     plt.title('Feature Importance (Lasso Regression)')
     plt.tight_layout()
     plt.show()
+
+
+def plot_optimised_betas(beta_hist, loss_hist):
+    """
+    Plots an interactive 3D line plot of epochs vs loss vs beta values for each beta coefficient.
+
+    Parameters:
+    -----------
+    beta_hist : list or array-like
+        List of arrays containing beta values at each epoch (shape: n_features x 1).
+    loss_hist : list or array-like
+        List of loss values for each epoch.
+    epochs : list or array-like
+        List of epoch numbers (same length as loss_hist and beta_hist)
+
+    Returns:
+    --------
+    None (shows interactive plot)
+    """
+
+    import plotly.graph_objects as go
+    import numpy as np
+
+
+    epochs = np.arange(len(loss_hist))
+    betas_flat = np.array([b.flatten() for b in beta_hist])
+
+    fig = go.Figure()
+
+    for beta_idx in range(betas_flat.shape[1]):
+        beta_values = betas_flat[:, beta_idx]
+
+        hover_template = (
+            "Epoch: %{x}<br>" +
+            "Loss: %{y:.4f}<br>" +
+            f"Beta β{beta_idx}: " + "%{z:.4f}<extra></extra>"
+        )
+
+        fig.add_trace(go.Scatter3d(
+            x=epochs,
+            y=loss_hist,
+            z=beta_values,
+            mode='lines+markers',
+            name=f'β{beta_idx}',
+            line=dict(width=2),
+            marker=dict(size=3),
+            hovertemplate=hover_template
+        ))
+
+    fig.update_layout(
+        scene=dict(
+            xaxis=dict(title='Epoch'),
+            yaxis=dict(title='Loss (Log-Likelihood)'),
+            zaxis=dict(title='Beta Coefficient')
+        ),
+        margin=dict(l=0, r=0, b=0, t=50),
+        showlegend=True
+    )
+
+    fig.show()
+
+    # Export to HTML file
+    # fig.write_html("beta_optimisation_plotly.html")
