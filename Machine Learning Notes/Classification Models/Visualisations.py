@@ -2,9 +2,10 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.express as px
 from sklearn.metrics import confusion_matrix, roc_curve, roc_auc_score
 
-
+# Plot the original and standardised data transformation
 def standardisation_plot(original_data, standardised_data):
     plt.figure(figsize=(14, 5))
 
@@ -27,6 +28,7 @@ def standardisation_plot(original_data, standardised_data):
     plt.tight_layout()
     plt.show()
 
+# Plot the sigmoid function
 def sigmoid_plot():
     # Define sigmoid function
     def sigmoid(z):
@@ -60,6 +62,7 @@ def sigmoid_plot():
     # Show plot
     plt.show()
 
+# Plot the model weights based on their magnitude and feature names as a bar chart
 def plot_model_weights_gradient(weights, feature_names, title='Model Weights', sort_by_abs=True, palette='viridis'):
     """
     Plot model weights as a horizontal bar chart with gradient color intensity based on weight magnitude.
@@ -109,7 +112,7 @@ def plot_model_weights_gradient(weights, feature_names, title='Model Weights', s
     plt.show()
 
 
-
+# Plot the losses over training the model
 def loss_plot(losses):
     plt.plot(losses)
     plt.xlabel("Epoch")
@@ -117,9 +120,7 @@ def loss_plot(losses):
     plt.title("Loss over Training")
     plt.show()
 
-
-
-
+# Plot a confusion matrix
 def plot_confusion_matrix(y_true, y_pred, class_names=None, title='Confusion Matrix', cmap='Blues', normalize=False):
     """
     Plots a confusion matrix using seaborn heatmap.
@@ -166,7 +167,7 @@ def plot_confusion_matrix(y_true, y_pred, class_names=None, title='Confusion Mat
     plt.show()
 
 
-
+# Plot the ROC curve and display the AUC
 def plot_roc_curve(y_true, y_scores, title='ROC Curve'):
     """
     Plots ROC Curve and displays ROC AUC score.
@@ -199,3 +200,53 @@ def plot_roc_curve(y_true, y_scores, title='ROC Curve'):
     plt.show()
 
     print(f"ROC AUC Score: {roc_auc:.4f}")
+
+# Plot the California housing data
+def cal_housing_plot(data):
+    fig = px.scatter_mapbox(
+        data,
+        lat="Latitude",
+        lon="Longitude",
+        color="MedHouseVal_Dollars",
+        color_continuous_scale="Viridis",
+        zoom=5,
+        height=900,
+        width=1500,
+        mapbox_style="carto-positron",
+        title="California Housing Values Heatmap",
+    )
+
+    # Customize colorbar ticks and labels
+    fig.update_layout(
+        coloraxis_colorbar=dict(
+            title="Median House Value ($)",
+            tickvals=[100000, 300000, 500000],
+            ticktext=["100k", "300k", "500k"],
+            ticks="outside",
+            ticklen=8,
+            tickfont=dict(size=12),
+        )
+    )
+    # Export to HTML file
+    #fig.write_html("california_house_values_heatmap_plotly.html")
+
+    fig.show()
+
+# Plot Lasso Feature Importance
+def lasso_features_plot(importance_df):
+
+    plt.figure(figsize=(10, 6))
+    sns.barplot(
+        y='Feature',
+        x='Coefficient',
+        data=importance_df,
+        hue='Abs_Coefficient',        # numeric hue to get gradient colors
+        palette='viridis',            # continuous colormap
+        dodge=False,
+        legend=False                  # hide the legend
+    )
+
+    plt.xlabel('Coefficient Value')
+    plt.title('Feature Importance (Ridge Regression)')
+    plt.tight_layout()
+    plt.show()
