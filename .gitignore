@@ -35,7 +35,7 @@ secrets.json
 *.feather
 *.db
 *.sqlite
-*.html
+
 
 # Outputs / Reports / Notebooks you don’t want tracked
 Regression_Models.ipynb
