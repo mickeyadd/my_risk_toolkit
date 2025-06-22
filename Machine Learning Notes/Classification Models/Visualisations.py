@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 from sklearn.metrics import confusion_matrix, roc_curve, roc_auc_score
+from sklearn.linear_model import LogisticRegression
+from sklearn import datasets
 
 # Plot the original and standardised data transformation
 def standardisation_plot(original_data, standardised_data):
@@ -313,3 +315,45 @@ def plot_optimised_betas(beta_hist, loss_hist):
 
     # Export to HTML file
     # fig.write_html("beta_optimisation_plotly.html")
+
+
+
+
+def binary_boundary_plot(show=True):
+    """
+    Plot binary logistic regression decision boundary on the Iris dataset 
+    (Setosa vs Versicolor using sepal length and sepal width).
+    """
+    # Load Iris data
+    iris = datasets.load_iris()
+    X = iris.data[:, :2]
+    y = iris.target
+
+    # Keep only Setosa (0) and Versicolor (1)
+    mask = (y == 0) | (y == 1)
+    X_bin = X[mask]
+    y_bin = y[mask]
+
+    # Fit binary logistic regression
+    model = LogisticRegression()
+    model.fit(X_bin, y_bin)
+
+    # Create grid
+    xx, yy = np.meshgrid(np.linspace(X_bin[:, 0].min()-0.5, X_bin[:, 0].max()+0.5, 300),
+                         np.linspace(X_bin[:, 1].min()-0.5, X_bin[:, 1].max()+0.5, 300))
+    grid = np.c_[xx.ravel(), yy.ravel()]
+
+    # Predict probabilities
+    probs = model.predict_proba(grid)[:, 1].reshape(xx.shape)
+
+    # Plot
+    plt.figure(figsize=(8,6))
+    plt.contourf(xx, yy, probs, cmap='coolwarm', alpha=0.3, levels=20)
+    plt.contour(xx, yy, probs, levels=[0.5], colors='black', linewidths=2)
+    plt.scatter(X_bin[:, 0], X_bin[:, 1], c=y_bin, cmap='bwr', edgecolor='k')
+    plt.title("Binary Logistic Regression (Setosa vs Versicolor)")
+    plt.xlabel("Sepal length (cm)")
+    plt.ylabel("Sepal width (cm)")
+    plt.colorbar(label="P(Class Versicolor)")
+    if show:
+        plt.show()
