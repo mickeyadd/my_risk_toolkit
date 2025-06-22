@@ -1,6 +1,11 @@
 # Virtual environment
 quant_finance_venv/
 
+# Python virtualenv directories (common patterns)
+venv/
+env/
+*.egg-info/
+
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
@@ -8,8 +13,34 @@ quant_finance_venv/
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
 
-# Other IDE-specific files
+# IDE / Editor-specific files
 .vscode/
 .idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Sensitive files / environment configs
+.env
+*.env
+secrets.json
+
+# Data files (prevent committing local data)
+*.csv
+*.xlsx
+*.parquet
+*.feather
+*.db
+*.sqlite
+
+# Outputs / Reports / Notebooks you don’t want tracked
 Regression_Models.ipynb
+*.log
+
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
