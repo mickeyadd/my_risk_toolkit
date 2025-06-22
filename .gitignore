@@ -39,6 +39,7 @@ secrets.json
 
 # Outputs / Reports / Notebooks you don’t want tracked
 Regression_Models.ipynb
+Machine Learning Notes/Classification Models/cb_2022_us_state_20m/
 *.log
 
 # Compressed files
