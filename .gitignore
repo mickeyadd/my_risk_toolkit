@@ -4,6 +4,7 @@ quant_finance_venv/
 # Python virtualenv directories (common patterns)
 venv/
 env/
+Miscellaneous/
 *.egg-info/
 
 # Jupyter Notebook checkpoints
